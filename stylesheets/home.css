@@ -43,6 +43,20 @@ body{
   opacity: 1.6;
   background: url("../images/blacktocat.png") 0 0 no-repeat;
 }
+.link-button{
+
+    appearance: button;
+    border: 2px solid rgba(0, 0, 0, 0.7);
+    text-decoration: none;
+    background: #0084b4;
+    color: white;
+    padding: 6px;
+}
+
+.link-button:hover{
+  border: 3px solid;
+  color: black;
+}
 
 .container{
 background-color:  #0084b4;
@@ -63,12 +77,23 @@ padding: 20px;
     text-align: center;
     padding: 0;
 }
-.projectlist{
+.facetrack{
   background: rgb(232, 233, 236);
   border: 1px solid transparent;
   border-radius: 4px;
-  margin-bottom: 8px;
+  margin-bottom: 30px;
   padding: 8px;
+
+  list-style-type: none;
+    text-align: center;
+}
+.lyric{
+  background: rgb(232, 233, 236);
+  border: 1px solid transparent;
+  border-radius: 4px;
+  margin-bottom: 30px;
+  padding: 8px;
+
   list-style-type: none;
     text-align: center;
 }
