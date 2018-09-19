@@ -1,3 +1,9 @@
+.icon{
+  padding: 10px;
+}
+.contact{
+  padding: 10px;
+}
 .navitem{
   position: relative;
   text-decoration: none;
@@ -5,6 +11,17 @@
   color: white;
 }
 
+p{
+  font-family: sans-serif;
+}
+
+li{
+  font-family: sans-serif;
+}
+ul{
+  list-style: none;
+  padding: 0px;
+}
 .titles{
   margin: 0px;
   letter-spacing:1px;
@@ -14,6 +31,10 @@ body{
   margin: 0px;
 }
 
+h1{
+  color: white;
+  font-family: sans-serif;
+}
 .btn .icon {
   display: inline-block;
   width: 16px;
@@ -54,6 +75,18 @@ body{
     display: inline-block;
 }
 
+#foot{
+  appearance: button;
+  border: 2px solid rgba(0, 0, 0, 0.7);
+  text-decoration: none;
+  background: #0084b4;
+  color: white;
+  padding: 4px;
+  display: inline-block;
+
+
+
+}
 
 
 .link-button:hover{
