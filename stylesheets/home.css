@@ -79,6 +79,19 @@ h1{
     display: inline-block;
 }
 
+@media only screen and (max-width: 425px){
+  .link-button{
+
+      
+      border: 2px solid rgba(0, 0, 0, 0.7);
+      text-decoration: none;
+      background: #0084b4;
+      color: white;
+      padding: 10px;
+      display: inline-block;
+  }
+}
+
 #foot{
   appearance: button;
   border: 2px solid rgba(0, 0, 0, 0.7);
