@@ -1,6 +1,13 @@
 .icon{
   padding: 10px;
 }
+.imageblock{
+
+}
+.newproject{
+  padding:40px;
+  width: 100%;
+}
 .contact{
   padding: 10px;
 }
@@ -37,7 +44,14 @@ body{
 
 h1{
   color: white;
+  font-family: serif;
+
+}
+
+.second-title{
+  color: lightgray;
   font-family: sans-serif;
+
 }
 .btn .icon {
   display: inline-block;
@@ -47,29 +61,7 @@ h1{
   float: left;
 }
 
-.btn {
-  display: inline-block;
-  background: -webkit-linear-gradient(top, rgba(40, 40, 40, 0.3), rgba(35, 35, 35, 0.3) 50%, rgba(10, 10, 10, 0.3) 50%, rgba(0, 0, 0, 0.3));
-  padding: 8px 18px;
-  border-radius: 50px;
-  border: 2px solid rgba(0, 0, 0, 0.7);
-  border-bottom: 2px solid rgba(0, 0, 0, 0.7);
-  border-top: 2px solid rgba(0, 0, 0, 1);
-  color: rgba(255, 255, 255, 0.8);
-  font-family: Helvetica, Arial, sans-serif;
-  font-weight: bold;
-  font-size: 13px;
-  text-decoration: none;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.75);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
-}
-
-.btn-github .icon {
-  opacity: 1.6;
-  background: url("../images/blacktocat.png") 0 0 no-repeat;
-}
 .link-button{
-
     appearance: button;
     border: 2px solid rgba(0, 0, 0, 0.7);
     text-decoration: none;
@@ -81,14 +73,66 @@ h1{
 
 @media only screen and (max-width: 425px){
   .link-button{
-
-      
       border: 2px solid rgba(0, 0, 0, 0.7);
       text-decoration: none;
       background: #0084b4;
       color: white;
       padding: 10px;
       display: inline-block;
+  }
+}
+
+@media only screen and (min-width: 1025px){
+  .facetrack-desc{
+    float: right;
+    width: 50%;
+  }
+  .karpul-desc{
+    float: right;
+    width: 50%;
+    padding:15px;
+  }
+  .karpul-img{
+    width: 40%;
+  }
+  .lyric-desc{
+    float: right;
+    width: 40%;
+
+  }
+  .lyric-img{
+    width: 40%;
+  }
+  .newproject{
+    padding:40px;
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 768px){
+  .facetrack-desc{
+    float: right;
+    width: 50%;
+  }
+  .karpul-desc{
+    float: right;
+    width: 50%;
+    padding:15px;
+  }
+  .karpul-img{
+    width: 40%;
+  }
+  .lyric-desc{
+    float: right;
+    width: 40%;
+
+  }
+  .lyric-img{
+    width: 40%;
+  }
+  .newproject{
+    padding:100px;
+    width: 100%;
   }
 }
 
@@ -111,6 +155,10 @@ h1{
   color: black;
 }
 
+.inner-titles{
+  display: inline-block;
+}
+
 .container{
 background-color:  #0084b4;
 position: relative;
@@ -118,6 +166,7 @@ text-align: center;
 margin-left: auto;
 margin-right: auto;
 padding: 20px;
+width: 100%;
 }
 
 .herotext{
@@ -144,7 +193,7 @@ padding: 20px;
     padding: 0;
 }
 .facetrack{
-  background: rgb(232, 233, 236);
+
   border: 1px solid transparent;
   border-radius: 4px;
   margin: 15px;
@@ -154,7 +203,7 @@ padding: 20px;
     text-align: center;
 }
 .lyric{
-  background: rgb(232, 233, 236);
+
   border: 1px solid transparent;
   border-radius: 4px;
   margin: 15px;
@@ -165,7 +214,7 @@ padding: 20px;
 }
 
 .karpul{
-  background: rgb(232, 233, 236);
+
   border: 1px solid transparent;
   border-radius: 4px;
   margin: 15px;
@@ -177,7 +226,7 @@ padding: 20px;
 }
 
 .divide{
-  border-top: 3px double #8c8b8b;
+  border-top: 2px double #8c8b8b;
   width: 80%;
   background-color: #0084b4;
 }
