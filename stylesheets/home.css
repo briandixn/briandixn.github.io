@@ -61,15 +61,7 @@ h1{
   float: left;
 }
 
-.link-button{
-    appearance: button;
-    border: 2px solid rgba(0, 0, 0, 0.7);
-    text-decoration: none;
-    background: #0084b4;
-    color: white;
-    padding: 6px;
-    display: inline-block;
-}
+
 
 @media only screen and (max-width: 425px){
   .link-button{
@@ -149,10 +141,27 @@ h1{
 
 }
 
+.link-button{
+    appearance: button;
+    border: 1px solid rgba(0, 0, 0, 0.7);
+    text-decoration: none;
+    background: #0084b4;
+    color: white;
+    padding: 6px;
+    display: inline-block;
+    box-shadow: 0 2px 0 darkblue;
+    border-radius: 2px;
+}
 
 .link-button:hover{
-  border: 3px solid;
-  color: black;
+  
+  color: gold;
+}
+
+.link-button:active{
+  box-shadow: none;
+  top: 3px;
+  border-radius: 2px;
 }
 
 .inner-titles{
