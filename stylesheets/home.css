@@ -221,6 +221,10 @@ float: right;
 width: 50%;
 }
 
+.text-portfolio h3{
+  font-size: 24px;
+}
+
 .portfolio{
   width: 40%;
   height: 40%;
@@ -296,9 +300,11 @@ width: 50%;
 
 .dev-list li{
   font-size: 24px;
+  font-family: serif;
 }
 .dev-list h3{
   font-size: 24px;
+  font-family: sans-serif;
 }
 
 .dev-list-section{
