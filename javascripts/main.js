@@ -1,83 +1,88 @@
 console.log('This would be the main JS file.');
-let canvas = document.querySelector('canvas');
-let context = canvas.getContext('2d');
-
-var size = 320;
-var dpr = window.devicePixelRatio;
-canvas.width = size * dpr;
-canvas.height = size * dpr;
-context.scale(dpr, dpr);
-
-context.lineWidth = 2;
-
-var circles = [];
-var minRadius = 2;
-var maxRadius = 100;
-var totalCircles = 700;
-var createCircleAttempts = 400;
-
-function createAndDrawCircle() {
-
-  var newCircle;
-  var circleSafeToDraw = false;
-  for(var tries = 0; tries < createCircleAttempts; tries++) {
-    newCircle = {
-      x: Math.floor(Math.random() * size),
-      y: Math.floor(Math.random() * size),
-      radius: minRadius
-    }
-
-    if(doesCircleHaveACollision(newCircle)) {
-      continue;
-    } else {
-      circleSafeToDraw = true;
-      break;
-    }
-  }
-
-  if(!circleSafeToDraw) {
-    return;
-  }
-
-  for(var radiusSize = minRadius; radiusSize < maxRadius; radiusSize++) {
-    newCircle.radius = radiusSize;
-    if(doesCircleHaveACollision(newCircle)){
-      newCircle.radius--;
-      break;
-    }
-  }
-
-  circles.push(newCircle);
-  context.beginPath();
-  context.arc(newCircle.x, newCircle.y, newCircle.radius, 0, 2*Math.PI);
-  context.stroke();
+function Particle(x, y, radius) {
+  this.init(x, y, radius);
 }
+Particle.prototype = {
+  init: function (x, y, radius) {
+    this.alive = true;
+    this.radius = radius;
+    this.theta = random(TWO_PI);
+    this.drag = 0.92;
+    this.color = '#fff';
+    this.x = x || 0.0;
+    this.y = y || 0.0;
+    this.vx = 0.0;
+    this.vy = 0.0;
+  },
+  move: function () {
+    this.x += this.vx;
+    this.y += this.vy;
+    this.vx *= this.drag;
+    this.vy *= this.drag;
+    this.theta += random(-0.1, 0.1);
+    this.vx += sin(this.theta) * 0.5;
+    this.vy += cos(this.theta) * 0.5;
+    this.radius *= 0.998;
+    this.alive = this.radius > 0.7;
+  },
+  draw: function (ctx) {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.radius, 0, TWO_PI);
+    ctx.fillStyle = this.color;
+    ctx.fill();
+  }
+};
+var MAX_PARTICLES = 700;
+var COLOURS = ['white', '#81ceff'];
+var particles = [];
+var pool = [];
 
-function doesCircleHaveACollision(circle) {
-  for(var i = 0; i < circles.length; i++) {
-    var otherCircle = circles[i];
-    var a = circle.radius + otherCircle.radius;
-    var x = circle.x - otherCircle.x;
-    var y = circle.y - otherCircle.y;
+var canvasContainer = getComputedStyle(document.getElementById('sketch-container'));
+var width = parseInt(canvasContainer.getPropertyValue('width'), 10);
+var height = parseInt(canvasContainer.getPropertyValue('height'), 10);
 
-    if (a >= Math.sqrt((x*x) + (y*y))) {
-      return true;
+var demo = Sketch.create({
+  container: document.getElementById('sketch-container'),
+  retina: 'auto',
+  fullscreen: false,
+  width: width,
+  height: height
+});
+demo.spawn = function (x, y) {
+  var particle, theta, force;
+  if (particles.length >= MAX_PARTICLES)
+    pool.push(particles.shift());
+  particle = pool.length ? pool.pop() : new Particle();
+  particle.init(x, y, 2);
+  particle.wander = random(0.5, 2.0);
+  particle.color = random(COLOURS);
+  particle.drag = random(0.1, 0.6);
+  theta = random(TWO_PI);
+  force = random(0, 0);
+  particle.vx = sin(theta) * force;
+  particle.vy = cos(theta) * force;
+  particles.push(particle);
+};
+demo.update = function () {
+  var i, particle;
+  for (i = particles.length - 1; i >= 0; i--) {
+    particle = particles[i];
+    if (particle.alive) particle.move();
+    else pool.push(particles.splice(i, 1)[0]);
+  }
+};
+demo.draw = function () {
+  demo.globalCompositeOperation = 'lighter';
+  for (var i = particles.length - 1; i >= 0; i--) {
+    particles[i].draw(demo);
+  }
+};
+demo.mousemove = function () {
+  var particle, theta, force, touch, max, i, j, n;
+  for (i = 0, n = demo.touches.length; i < n; i++) {
+    touch = demo.touches[i], max = random(2);
+    for (j = 0; j < max; j++) {
+      demo.spawn(touch.x, touch.y);
     }
   }
-
-  if(circle.x + circle.radius >= size ||
-     circle.x - circle.radius <= 0) {
-    return true;
-  }
-
-  if(circle.y + circle.radius >= size ||
-      circle.y - circle.radius <= 0) {
-    return true;
-  }
-
-  return false;
-}
-
-for( var i = 0; i < totalCircles; i++ ) {
-  createAndDrawCircle();
-}
+};

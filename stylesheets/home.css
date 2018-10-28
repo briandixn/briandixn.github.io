@@ -1,22 +1,30 @@
 .icon{
   padding: 10px;
 }
-.imageblock{
 
-}
 .newproject{
   padding:40px;
   width: 100%;
 }
-.contact{
-  padding: 10px;
-}
+
 .navitem{
   position: relative;
   text-decoration: none;
   padding: 30px;
   color: white;
 }
+
+#sketch-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 20%;
+  width: 100%;
+}
+canvas{
+  width: 100%;
+}
+
 
 a{
   font-family: sans-serif;
@@ -33,24 +41,20 @@ ul{
   list-style: none;
   padding: 0px;
 }
-.titles{
-  margin: 0px;
-  letter-spacing:1px;
-  text-decoration-color: white;
-}
+
 body{
   margin: 0px;
 }
 
-h1{
-  color: white;
-  font-family: serif;
-
+html{
+  background-color: #EDEDED;
 }
 
+
 .second-title{
-  color: lightgray;
+  color: white;
   font-family: sans-serif;
+  top: 50%;
 
 }
 .btn .icon {
@@ -64,6 +68,22 @@ h1{
 
 
 @media only screen and (max-width: 425px){
+  .text-portfolio {
+    text-align: center !important;
+    margin: 20px !important;
+    width: 75% !important;
+    float: none !important;
+  }
+
+  .dev-list-section{
+    text-align: center !important;
+
+    display: inline-block !important;
+    height: 350px !important;
+    width: 100% !important;
+  }
+
+
   .link-button{
       border: 2px solid rgba(0, 0, 0, 0.7);
       text-decoration: none;
@@ -71,6 +91,9 @@ h1{
       color: white;
       padding: 10px;
       display: inline-block;
+  }
+  canvas{
+    width:100%;
   }
 }
 
@@ -102,6 +125,21 @@ h1{
 }
 
 @media only screen and (min-width: 768px){
+  .text-portfolio {
+    text-align: center !important;
+    margin: 20px !important;
+    width: 75% !important;
+    float: none !important;
+  }
+
+  .dev-list-section{
+    text-align: center;
+
+    display: block;
+    height: 450px;
+    width: 100%;
+  }
+
   .facetrack-desc{
     float: right;
     width: 50%;
@@ -126,24 +164,14 @@ h1{
     padding:100px;
     width: 100%;
   }
-}
-
-#foot{
-  appearance: button;
-  border: 2px solid rgba(0, 0, 0, 0.7);
-  text-decoration: none;
-  background: #0084b4;
-  color: white;
-  padding: 4px;
-  display: inline-block;
-
 
 
 }
+
 
 .link-button{
     appearance: button;
-    border: 1px solid rgba(0, 0, 0, 0.7);
+    border: 0.5px solid rgba(0, 0, 0, 0.7);
     text-decoration: none;
     background: #0084b4;
     color: white;
@@ -151,10 +179,11 @@ h1{
     display: inline-block;
     box-shadow: 0 2px 0 darkblue;
     border-radius: 2px;
+    font-size: 15px;
 }
 
 .link-button:hover{
-  
+
   color: gold;
 }
 
@@ -174,16 +203,77 @@ position: relative;
 text-align: center;
 margin-left: auto;
 margin-right: auto;
-padding: 20px;
+padding: 0px;
 width: 100%;
 }
 
 .herotext{
   text-align: center;
-  list-style-type: none;
+  top: 50%;
+  display: block;
+
+}
+
+.text-portfolio{
+display: inline-block;
+margin: 20px;
+float: right;
+width: 50%;
+}
+
+.portfolio{
+  width: 40%;
+  height: 40%;
+  transform: rotate(270deg);
+  padding: 20px;
+  margin: auto;
+  display: inline-block;
+  border-radius: 10px;
+
 }
 
 
+.profiles-top{
+  width: 100vw;
+    height: 100vh;
+  background-image:url(../images/mesh.png);
+  background-size: cover;
+  background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    text-align: center;
+}
+.titles{
+  margin: 0px;
+  letter-spacing:1px;
+  text-decoration-color: white;
+  position: relative;
+  top: 50%;
+  color: white;
+}
+#foot{
+  border: 2px solid white;
+  text-decoration: none;
+  border-radius: 7px;
+  color: white;
+  padding: 4px;
+  display: inline-block;
+  margin: 10px;
+
+}
+
+.contact{
+  padding: 10px;
+  top: 35%;
+  position: relative;
+
+  margin: 0px;
+
+}
+
+.contact li{
+  display: inline-block;
+}
 
 .skillsets{
   list-style: none;
@@ -196,11 +286,32 @@ width: 100%;
   border-radius: 3px;
 }
 
-.skills-list{
+.dev-list{
   list-style-type: none;
     text-align: center;
     padding: 0;
+    display: inline-block;
+    margin: 30px;
 }
+
+.dev-list li{
+  font-size: 24px;
+}
+.dev-list h3{
+  font-size: 24px;
+}
+
+.dev-list-section{
+  text-align: center;
+
+  display: block;
+  height: 450px;
+}
+
+#skillTitle{
+  margin: 5px;
+}
+
 .facetrack{
 
   border: 1px solid transparent;
@@ -211,15 +322,21 @@ width: 100%;
   list-style-type: none;
     text-align: center;
 }
+.facetrack h3{
+  font-size: 24px;
+}
 .lyric{
 
   border: 1px solid transparent;
   border-radius: 4px;
   margin: 15px;
   padding: 15px;
-
+  display: inline-block;
   list-style-type: none;
     text-align: center;
+}
+.lyric h3{
+  font-size: 24px;
 }
 
 .karpul{
@@ -228,16 +345,22 @@ width: 100%;
   border-radius: 4px;
   margin: 15px;
   padding: 15px;
-
-
+  display: inline-block;
   list-style-type: none;
     text-align: center;
 }
 
+.karpul h3{
+  font-size: 24px;
+}
+
 .divide{
-  border-top: 2px double #8c8b8b;
-  width: 80%;
-  background-color: #0084b4;
+  border-bottom: 10px solid gold;
+  text-align: center;
+  width: 100%;
+  line-height: 0.1px;
+  padding: 10px;
+  margin: 0px;
 }
 .canvas{
   width: 100%;
